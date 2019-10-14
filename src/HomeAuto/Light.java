@@ -21,4 +21,7 @@ public class Light {
 	public int getLevel() {
 		return level;
 	}
+	public String log() {
+		
+	}
 }

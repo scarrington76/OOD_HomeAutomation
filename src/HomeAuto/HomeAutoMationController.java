@@ -1,7 +1,9 @@
 package HomeAuto;
 
+import java.awt.Label;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.util.Random;
 
 public class HomeAutoMationController {
 	public static void main(String args[]) {
@@ -27,16 +29,28 @@ public class HomeAutoMationController {
 			System.out.println("No");
 		}
 		
+		
+		///// Weather / Observer Pattern
 		WeatherData weatherData = new WeatherData();
 		
 		CurrentConditionsDisplay currentDisplay = 
 			new CurrentConditionsDisplay(weatherData);
+		
+		currentDisplay.display();
+		
+		Label currentTime = weatherData.getTime();
+		LocalTime sunrise = LocalTime.of(6,30);
+		LocalTime sunset = LocalTime.of(18, 30);
+		Random hour = new Random();
+		Random min = new Random();
+		LocalTime randomtime = LocalTime.of(hour.nextInt(23), min.nextInt(59));
+		System.out.println(randomtime);
 
-//		weatherData.setMeasurements(05:59, 06:00, null);
+		System.out.println("Welcome Home Scott");
+		System.out.println("The current time is : " + currentTime);
+//		weatherData.setMeasurements(
 //		weatherData.setMeasurements(82, 70, null);
 //		weatherData.setMeasurements(78, 90, null);
-		LocalTime currentTime = weatherData.getTime();
-		System.out.println(currentTime);
 		
 ////	BedroomLight bedroomlight = new CakeStore();
 ////	PastryStore cookieStore = new CookieStore();

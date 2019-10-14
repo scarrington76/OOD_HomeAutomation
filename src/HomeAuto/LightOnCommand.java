@@ -14,4 +14,7 @@ public class LightOnCommand implements Command {
 	public void undo() {
 		light.off();
 	}
+	public void log() {
+		light.log();
+	}
 }

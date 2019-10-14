@@ -1,14 +1,17 @@
 package HomeAuto;
 
 import java.util.*;
+import java.awt.Label;
 import java.sql.Time;
 import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 
 public class WeatherData implements Subject {
 	private ArrayList<Observer> observers;
 	private Time sunrise;
 	private Time sunset;
-	private LocalTime time = LocalTime.now();
+	private DateTimeFormatter dtf = DateTimeFormatter.ofPattern("HH:mm");
+	private Label timenow = new Label(LocalTime.now().format(dtf));
 	
 	public WeatherData() {
 		observers = new ArrayList<Observer>();
@@ -27,7 +30,7 @@ public class WeatherData implements Subject {
 	
 	public void notifyObservers() {
 		for (Observer observer : observers) {
-			observer.update(sunrise, sunset, time);
+			observer.update(sunrise, sunset, timenow);
 		}
 	}
 	
@@ -35,10 +38,9 @@ public class WeatherData implements Subject {
 		notifyObservers();
 	}
 	
-	public void setMeasurements(Time sunrise, Time sunset, LocalTime time) {
+	public void setMeasurements(Time sunrise, Time sunset) {
 		this.sunrise = sunrise;
 		this.sunset = sunset;
-		this.time = time;
 		measurementsChanged();
 	}
 
@@ -50,8 +52,8 @@ public class WeatherData implements Subject {
 		return sunset;
 	}
 	
-	public LocalTime getTime() {
-		return time;
+	public Label getTime() {
+		return timenow;
 	}
 
 }

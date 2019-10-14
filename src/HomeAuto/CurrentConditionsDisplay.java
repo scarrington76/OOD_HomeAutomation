@@ -1,5 +1,6 @@
 package HomeAuto;
 
+import java.awt.Label;
 import java.sql.Time;
 import java.time.LocalTime;
 
@@ -21,5 +22,11 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 	
 	public void display() {
 		System.out.println("Today's sunrise is : " + sunrise + "\nToday's sunset is : " + sunset);
+	}
+
+	@Override
+	public void update(Time sunrise, Time sunset, Label timenow) {
+		// TODO Auto-generated method stub
+		
 	}
 }
