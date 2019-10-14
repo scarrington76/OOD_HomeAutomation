@@ -1,8 +1,11 @@
 package HomeAuto;
-	
+
+import java.sql.Time;
+import java.time.LocalTime;
+
 public class CurrentConditionsDisplay implements Observer, DisplayElement {
-	private float temperature;
-	private float humidity;
+	private Time sunrise;
+	private Time sunset;
 	private Subject weatherData;
 	
 	public CurrentConditionsDisplay(Subject weatherData) {
@@ -10,14 +13,13 @@ public class CurrentConditionsDisplay implements Observer, DisplayElement {
 		weatherData.registerObserver(this);
 	}
 	
-	public void update(float temperature, float humidity, float pressure) {
-		this.temperature = temperature;
-		this.humidity = humidity;
+	public void update(Time sunrise, Time sunset, LocalTime time) {
+		this.sunrise = sunrise;
+		this.sunset = sunset;
 		display();
 	}
 	
 	public void display() {
-		System.out.println("Current conditions: " + temperature 
-			+ "F degrees and " + humidity + "% humidity");
+		System.out.println("Today's sunrise is : " + sunrise + "\nToday's sunset is : " + sunset);
 	}
 }

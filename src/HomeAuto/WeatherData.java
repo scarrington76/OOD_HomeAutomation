@@ -1,12 +1,14 @@
 package HomeAuto;
 
 import java.util.*;
+import java.sql.Time;
+import java.time.LocalTime;
 
 public class WeatherData implements Subject {
 	private ArrayList<Observer> observers;
-	private float temperature;
-	private float humidity;
-	private float pressure;
+	private Time sunrise;
+	private Time sunset;
+	private LocalTime time = LocalTime.now();
 	
 	public WeatherData() {
 		observers = new ArrayList<Observer>();
@@ -25,7 +27,7 @@ public class WeatherData implements Subject {
 	
 	public void notifyObservers() {
 		for (Observer observer : observers) {
-			observer.update(temperature, humidity, pressure);
+			observer.update(sunrise, sunset, time);
 		}
 	}
 	
@@ -33,23 +35,23 @@ public class WeatherData implements Subject {
 		notifyObservers();
 	}
 	
-	public void setMeasurements(float temperature, float humidity, float pressure) {
-		this.temperature = temperature;
-		this.humidity = humidity;
-		this.pressure = pressure;
+	public void setMeasurements(Time sunrise, Time sunset, LocalTime time) {
+		this.sunrise = sunrise;
+		this.sunset = sunset;
+		this.time = time;
 		measurementsChanged();
 	}
 
-	public float getTemperature() {
-		return temperature;
+	public Time getSunrise() {
+		return sunrise;
 	}
 	
-	public float getHumidity() {
-		return humidity;
+	public Time getSunset() {
+		return sunset;
 	}
 	
-	public float getPressure() {
-		return pressure;
+	public LocalTime getTime() {
+		return time;
 	}
 
 }
