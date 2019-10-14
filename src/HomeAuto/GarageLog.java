@@ -32,8 +32,10 @@ public class GarageLog {
 		}
 	}
  
-	public LogItem[] getLogItems() {
-		return logitems;
+	public Iterator createIterator() {
+		return new GarageLogIterator(logitems);
 	}
+	
+	
 
 }

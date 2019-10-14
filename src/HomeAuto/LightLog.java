@@ -22,8 +22,8 @@ public class LightLog {
 		lightlogitems.add(logitem);
 	}
  
-	public ArrayList<LogItem> getMenuItems() {
-		return lightlogitems;
+	public Iterator createIterator() {
+		return new LightLogIterator(lightlogitems);
 	}
 	
 }

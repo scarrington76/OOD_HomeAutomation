@@ -22,5 +22,8 @@ public class MacroCommand implements Command {
 			commands[i].undo();
 		}
 	}
+	public void log() {
+		
+	}
 }
 
