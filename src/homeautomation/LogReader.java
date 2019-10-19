@@ -22,8 +22,7 @@ public class LogReader {
 	private void printLog (Iterator iterator) {
 		while (iterator.hasNext()) {
 			LogItem logitem = (LogItem)iterator.next();
-			System.out.println(logitem.getLocation() + ", ");
-			System.out.println(logitem.getDevice() + " was changed");
+			System.out.println(logitem.getItem());
 		}
 
 	}

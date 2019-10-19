@@ -84,9 +84,9 @@ public class RemoteLoader {
 		/////////////////////////////////////////////////////
 		
 		///////Log Iterator Pattern ///////////////
-//		GarageDoor garagelog = new GarageDoor("GarageLog");
-//		Light lightlog = new Light("LightLog");
-//		LogReader logreader = new LogReader (garagelog, lightlog);
+		GarageDoor garagelog = new GarageDoor("GarageLog");
+		Light lightlog = new Light("LightLog");
+		LogReader logreader = new LogReader (garagelog, lightlog);
 //		*****CANNOT GET CODE TO WORK DUE TO AN ERROR IN GARAGE ARRAY SETUP
 		
 		
@@ -105,7 +105,7 @@ public class RemoteLoader {
 			System.out.println("6 - Switch Pathway Light");
 			System.out.println("7 - Switch Garage Door");
 			System.out.println("8 - Turn on/off Christmas Lights");
-//			System.out.println("9 - Print Activity Logs");   ** NOT WORKING ****
+			System.out.println("9 - Print Activity Logs");   // NOT WORKING ****
 			System.out.println("Q - Quit");
 			choice = scan.nextLine();
 			switch (choice) {
@@ -139,9 +139,9 @@ public class RemoteLoader {
 				griswoldxmas.start();
 				griswoldxmas.end();
 				break;
-//			case "9":   ***NOT WORKING PROPERLY****
-//				logreader.printLog();
-//				break;
+			case "9":   //***NOT WORKING PROPERLY****
+				logreader.printLog();
+				break;
 				
 		} } while (!choice.equalsIgnoreCase("Q"));
 		
